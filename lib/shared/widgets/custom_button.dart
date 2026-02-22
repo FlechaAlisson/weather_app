@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/constants/app_colors.dart';
+import 'package:weather_app/core/app_theme.dart';
 
 class CustomButton extends StatelessWidget {
   final Widget child;
@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       style:
           style ??
           ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(AppColors.backgroundColor),
+            backgroundColor: WidgetStateProperty.all(AppColors.surface),
           ),
       child: child,
     );

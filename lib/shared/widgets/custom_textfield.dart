@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/constants/app_colors.dart';
+import 'package:weather_app/core/app_theme.dart';
 
 class CustomTextfield<T> extends StatelessWidget {
   final TextEditingController controller;
@@ -25,7 +25,7 @@ class CustomTextfield<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -51,19 +51,16 @@ class CustomTextfield<T> extends StatelessWidget {
             ),
           ),
           if (suggestions != null && suggestions!.isNotEmpty)
-            Container(
-              color: AppColors.backgroundColor,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: suggestions!.length,
-                itemBuilder: (context, index) {
-                  final item = suggestions![index];
-                  return ListTile(
-                    title: Text(item.toString()),
-                    onTap: () => onSuggestionTap?.call(item),
-                  );
-                },
-              ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: suggestions!.length,
+              itemBuilder: (context, index) {
+                final item = suggestions![index];
+                return ListTile(
+                  title: Text(item.toString()),
+                  onTap: () => onSuggestionTap?.call(item),
+                );
+              },
             ),
         ],
       ),

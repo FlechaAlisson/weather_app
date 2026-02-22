@@ -15,6 +15,7 @@ class WeatherModalList extends StatelessWidget {
         final day = weatherList.forecast[index];
 
         return CustomWeatherTile(
+          tempUnit: 'C',
           day: day,
           currentTemp: weatherList.tempCurrent,
         );

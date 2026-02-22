@@ -2,6 +2,6 @@ sealed class WeatherEvent {
   const WeatherEvent();
 }
 
-class FetchByLocation extends WeatherEvent {
-  const FetchByLocation();
+class LoadWeather extends WeatherEvent {
+  const LoadWeather();
 }

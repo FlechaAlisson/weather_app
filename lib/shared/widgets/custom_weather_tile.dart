@@ -5,11 +5,13 @@ import 'package:weather_app/shared/extensions/datetime_extension.dart';
 class CustomWeatherTile extends StatelessWidget {
   final ForecastEntity day;
   final double currentTemp;
+  final String tempUnit;
 
   const CustomWeatherTile({
     super.key,
     required this.day,
     required this.currentTemp,
+    required this.tempUnit,
   });
 
   @override
@@ -30,7 +32,6 @@ class CustomWeatherTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           children: [
-            // Data / Today
             Expanded(
               flex: 2,
               child: Column(
@@ -58,16 +59,15 @@ class CustomWeatherTile extends StatelessWidget {
               ),
             ),
             if (day.date.isToday())
-              Expanded(child: Text('Now: $currentTemp ° ')),
+              Expanded(child: Text('Now: $currentTemp °$tempUnit')),
 
-            // Temp range
             Expanded(
               flex: 3,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '${day.tempMin}°',
+                    '${day.tempMin}°$tempUnit',
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.blue.shade400,
@@ -83,7 +83,7 @@ class CustomWeatherTile extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${day.tempMax}°',
+                    '${day.tempMax}°$tempUnit',
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.red.shade400,
@@ -94,7 +94,6 @@ class CustomWeatherTile extends StatelessWidget {
               ),
             ),
 
-            // Precipitação
             Row(
               children: [
                 Icon(

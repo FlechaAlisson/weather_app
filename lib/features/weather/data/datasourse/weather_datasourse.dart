@@ -8,7 +8,11 @@ class WeatherDatasource {
 
   WeatherDatasource(this._client);
 
-  Future<WeatherModel> getWeatherByCoordinates(double lat, double lon) async {
+  Future<WeatherModel> getWeatherByCoordinates(
+    double lat,
+    double lon,
+    String tempUnit,
+  ) async {
     final response = await _client.get(
       '/v1/forecast',
       queryParam: {
@@ -18,6 +22,7 @@ class WeatherDatasource {
         'timezone': 'auto',
         'forecast_days': '10',
         'current': 'temperature_2m',
+        'temperature_unit': tempUnit == 'C' ? 'celsius' : 'fahrenheit',
       },
     );
     return WeatherModel.fromJson(response.data);

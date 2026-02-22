@@ -2,7 +2,7 @@ import 'package:weather_app/features/weather/domain/entities/weather_entity.dart
 import 'package:weather_app/features/weather/domain/repositories/weather_repository.dart';
 
 abstract class IGetWeatherFromLocationUseCase {
-  Future<WeatherEntity> call(double lat, double long);
+  Future<WeatherEntity> call(double lat, double long, String tempUnit);
 }
 
 class GetWeatherFromLocation implements IGetWeatherFromLocationUseCase {
@@ -11,10 +11,11 @@ class GetWeatherFromLocation implements IGetWeatherFromLocationUseCase {
   GetWeatherFromLocation(this._weatherRepo);
 
   @override
-  Future<WeatherEntity> call(double lat, double long) {
+  Future<WeatherEntity> call(double lat, double long, String tempUnit) {
     return _weatherRepo.getWeatherByCoordinates(
       lat,
       long,
+      tempUnit,
     );
   }
 }

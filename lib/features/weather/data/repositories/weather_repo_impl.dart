@@ -8,8 +8,16 @@ class WeatherRepositoryImpl implements WeatherRepository {
   WeatherRepositoryImpl(this._weatherDatasource);
 
   @override
-  Future<WeatherEntity> getWeatherByCoordinates(double lat, double lon) async {
-    final model = await _weatherDatasource.getWeatherByCoordinates(lat, lon);
+  Future<WeatherEntity> getWeatherByCoordinates(
+    double lat,
+    double lon,
+    String tempUnit,
+  ) async {
+    final model = await _weatherDatasource.getWeatherByCoordinates(
+      lat,
+      lon,
+      tempUnit,
+    );
     return model.toEntity();
   }
 }

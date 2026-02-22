@@ -1,4 +1,4 @@
-// ignore: depend_on_referenced_packages
+// ignore: implementation_imports, depend_on_referenced_packages
 import 'package:geolocator_platform_interface/src/models/position.dart';
 import 'package:weather_app/features/location/data/datasourse/geolocation_datasource.dart';
 import 'package:weather_app/features/location/data/datasourse/location_datasourse.dart';

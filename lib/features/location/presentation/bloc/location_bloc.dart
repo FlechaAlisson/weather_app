@@ -9,17 +9,20 @@ import 'package:weather_app/features/location/domain/usecase/get_current_locatio
 import 'package:weather_app/features/location/domain/usecase/get_weather_from_location.dart';
 import 'package:weather_app/features/location/presentation/bloc/location_event.dart';
 import 'package:weather_app/features/location/presentation/bloc/location_state.dart';
+import 'package:weather_app/features/settings/domain/usecases/get_temp_unit_usecase.dart';
 import 'package:weather_app/features/weather/domain/entities/weather_entity.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final IGetCurrentLocationUseCase _currentLocationUseCase;
   final IFetchAddressUseCase _fetchAddressUseCase;
   final IGetWeatherFromLocationUseCase _getWeatherFromLocationUseCase;
+  final IGetTempUnitUsecase _getTempUnit;
 
   LocationBloc(
     this._currentLocationUseCase,
     this._fetchAddressUseCase,
     this._getWeatherFromLocationUseCase,
+    this._getTempUnit,
   ) : super(LocationState()) {
     on<FetchLocation>(_onFetchLocation);
     on<ChangeLocation>(_onChangeLocation);
@@ -36,9 +39,11 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   ) async {
     emit(state.copyWith(isWeatherLoading: true));
     try {
+      String tempUnit = await _getTempUnit();
       WeatherEntity weatherLoaded = await _getWeatherFromLocationUseCase(
         event.lat,
         event.long,
+        tempUnit,
       );
       emit(
         state.copyWith(

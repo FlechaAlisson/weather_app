@@ -4,7 +4,7 @@ import 'package:weather_app/features/weather/domain/entities/weather_entity.dart
 import 'package:weather_app/features/weather/domain/repositories/weather_repository.dart';
 
 abstract class IGetWeatherCurrentLocationUseCase {
-  Future<WeatherEntity> call();
+  Future<WeatherEntity> call(String tempUnit);
 }
 
 class GetWeatherCurrentLocationUseCase
@@ -15,11 +15,12 @@ class GetWeatherCurrentLocationUseCase
   GetWeatherCurrentLocationUseCase(this._weatherRepo, this._locationRepository);
 
   @override
-  Future<WeatherEntity> call() async {
+  Future<WeatherEntity> call(String tempUnit) async {
     final Position position = await _locationRepository.getCurrentPosition();
     return await _weatherRepo.getWeatherByCoordinates(
       position.latitude,
       position.longitude,
+      tempUnit,
     );
   }
 }
