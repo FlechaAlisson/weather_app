@@ -29,7 +29,7 @@ class CustomWeatherTile extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Row(
           children: [
             Expanded(
@@ -58,57 +58,92 @@ class CustomWeatherTile extends StatelessWidget {
                 ],
               ),
             ),
-            if (day.date.isToday())
-              Expanded(child: Text('Now: $currentTemp °$tempUnit')),
-
             Expanded(
-              flex: 3,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${day.tempMin}°$tempUnit',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.blue.shade400,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Icon(
-                      Icons.remove,
-                      size: 12,
-                      color: Colors.grey.shade400,
-                    ),
-                  ),
-                  Text(
-                    '${day.tempMax}°$tempUnit',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.red.shade400,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
+              flex: 2,
+              child: day.date.isToday()
+                  ? Text('Now: $currentTemp°$tempUnit')
+                  : Container(),
             ),
 
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.water_drop,
-                  size: 14,
-                  color: Colors.blue.shade300,
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Min:',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue.shade400,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    Text(
+                      '${day.tempMin}°$tempUnit',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue.shade400,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 4),
+
+                SizedBox(width: 16),
+
+                Column(
+                  children: [
+                    Text(
+                      'Max:',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.red.shade400,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      '${day.tempMax}°$tempUnit',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.red.shade400,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Flexible(child: Container()),
+
+            Column(
+              children: [
                 Text(
-                  '${day.precipitationMm}mm',
+                  'Rain prob.',
                   style: TextStyle(
                     fontSize: 13,
                     color: Colors.blue.shade600,
                     fontWeight: FontWeight.w500,
                   ),
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.water_drop,
+                      size: 14,
+                      color: Colors.blue.shade300,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      '${day.precipitationMm.toStringAsFixed(0)}%',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.blue.shade600,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

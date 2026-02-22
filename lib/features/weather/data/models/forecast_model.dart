@@ -12,7 +12,8 @@ abstract class ForecastModel with _$ForecastModel {
     required List<String> time,
     @JsonKey(name: 'temperature_2m_max') required List<double> temperature2mMax,
     @JsonKey(name: 'temperature_2m_min') required List<double> temperature2mMin,
-    @JsonKey(name: 'precipitation_sum') required List<double> precipitationSum,
+    @JsonKey(name: 'precipitation_probability_max')
+    required List<double> precipitationSum,
   }) = _ForecastModel;
 
   factory ForecastModel.fromJson(Map<String, dynamic> json) =>

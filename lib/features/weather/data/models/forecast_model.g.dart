@@ -15,7 +15,7 @@ _ForecastModel _$ForecastModelFromJson(Map<String, dynamic> json) =>
       temperature2mMin: (json['temperature_2m_min'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
-      precipitationSum: (json['precipitation_sum'] as List<dynamic>)
+      precipitationSum: (json['precipitation_probability_max'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
     );
@@ -25,5 +25,5 @@ Map<String, dynamic> _$ForecastModelToJson(_ForecastModel instance) =>
       'time': instance.time,
       'temperature_2m_max': instance.temperature2mMax,
       'temperature_2m_min': instance.temperature2mMin,
-      'precipitation_sum': instance.precipitationSum,
+      'precipitation_probability_max': instance.precipitationSum,
     };

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ForecastModel {
 
- List<String> get time;@JsonKey(name: 'temperature_2m_max') List<double> get temperature2mMax;@JsonKey(name: 'temperature_2m_min') List<double> get temperature2mMin;@JsonKey(name: 'precipitation_sum') List<double> get precipitationSum;
+ List<String> get time;@JsonKey(name: 'temperature_2m_max') List<double> get temperature2mMax;@JsonKey(name: 'temperature_2m_min') List<double> get temperature2mMin;@JsonKey(name: 'precipitation_probability_max') List<double> get precipitationSum;
 /// Create a copy of ForecastModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ForecastModelCopyWith<$Res>  {
   factory $ForecastModelCopyWith(ForecastModel value, $Res Function(ForecastModel) _then) = _$ForecastModelCopyWithImpl;
 @useResult
 $Res call({
- List<String> time,@JsonKey(name: 'temperature_2m_max') List<double> temperature2mMax,@JsonKey(name: 'temperature_2m_min') List<double> temperature2mMin,@JsonKey(name: 'precipitation_sum') List<double> precipitationSum
+ List<String> time,@JsonKey(name: 'temperature_2m_max') List<double> temperature2mMax,@JsonKey(name: 'temperature_2m_min') List<double> temperature2mMin,@JsonKey(name: 'precipitation_probability_max') List<double> precipitationSum
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_sum')  List<double> precipitationSum)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_probability_max')  List<double> precipitationSum)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ForecastModel() when $default != null:
 return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.precipitationSum);case _:
@@ -177,7 +177,7 @@ return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_sum')  List<double> precipitationSum)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_probability_max')  List<double> precipitationSum)  $default,) {final _that = this;
 switch (_that) {
 case _ForecastModel():
 return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.precipitationSum);case _:
@@ -197,7 +197,7 @@ return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_sum')  List<double> precipitationSum)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> time, @JsonKey(name: 'temperature_2m_max')  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min')  List<double> temperature2mMin, @JsonKey(name: 'precipitation_probability_max')  List<double> precipitationSum)?  $default,) {final _that = this;
 switch (_that) {
 case _ForecastModel() when $default != null:
 return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.precipitationSum);case _:
@@ -212,7 +212,7 @@ return $default(_that.time,_that.temperature2mMax,_that.temperature2mMin,_that.p
 @JsonSerializable()
 
 class _ForecastModel extends ForecastModel {
-  const _ForecastModel({required final  List<String> time, @JsonKey(name: 'temperature_2m_max') required final  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min') required final  List<double> temperature2mMin, @JsonKey(name: 'precipitation_sum') required final  List<double> precipitationSum}): _time = time,_temperature2mMax = temperature2mMax,_temperature2mMin = temperature2mMin,_precipitationSum = precipitationSum,super._();
+  const _ForecastModel({required final  List<String> time, @JsonKey(name: 'temperature_2m_max') required final  List<double> temperature2mMax, @JsonKey(name: 'temperature_2m_min') required final  List<double> temperature2mMin, @JsonKey(name: 'precipitation_probability_max') required final  List<double> precipitationSum}): _time = time,_temperature2mMax = temperature2mMax,_temperature2mMin = temperature2mMin,_precipitationSum = precipitationSum,super._();
   factory _ForecastModel.fromJson(Map<String, dynamic> json) => _$ForecastModelFromJson(json);
 
  final  List<String> _time;
@@ -237,7 +237,7 @@ class _ForecastModel extends ForecastModel {
 }
 
  final  List<double> _precipitationSum;
-@override@JsonKey(name: 'precipitation_sum') List<double> get precipitationSum {
+@override@JsonKey(name: 'precipitation_probability_max') List<double> get precipitationSum {
   if (_precipitationSum is EqualUnmodifiableListView) return _precipitationSum;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_precipitationSum);
@@ -277,7 +277,7 @@ abstract mixin class _$ForecastModelCopyWith<$Res> implements $ForecastModelCopy
   factory _$ForecastModelCopyWith(_ForecastModel value, $Res Function(_ForecastModel) _then) = __$ForecastModelCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> time,@JsonKey(name: 'temperature_2m_max') List<double> temperature2mMax,@JsonKey(name: 'temperature_2m_min') List<double> temperature2mMin,@JsonKey(name: 'precipitation_sum') List<double> precipitationSum
+ List<String> time,@JsonKey(name: 'temperature_2m_max') List<double> temperature2mMax,@JsonKey(name: 'temperature_2m_min') List<double> temperature2mMin,@JsonKey(name: 'precipitation_probability_max') List<double> precipitationSum
 });
 
 

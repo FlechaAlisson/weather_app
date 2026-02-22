@@ -51,6 +51,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           isWeatherLoading: false,
           weatherEntity: weatherLoaded,
           showModal: true,
+          tempUnit: tempUnit,
         ),
       );
     } catch (e) {

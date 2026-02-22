@@ -44,6 +44,7 @@ class _LocationPageState extends State<LocationPage> {
                 title: 'Forecast for this location',
                 primaryLabel: 'Close',
                 content: WeatherModalList(
+                  tempUnit: state.tempUnit,
                   weatherList: state.weatherEntity!,
                 ),
               );

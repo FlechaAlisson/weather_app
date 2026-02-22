@@ -18,7 +18,8 @@ class WeatherDatasource {
       queryParam: {
         'latitude': lat,
         'longitude': lon,
-        'daily': 'temperature_2m_max,temperature_2m_min,precipitation_sum',
+        'daily':
+            'temperature_2m_max,temperature_2m_min,precipitation_probability_max',
         'timezone': 'auto',
         'forecast_days': '10',
         'current': 'temperature_2m',
