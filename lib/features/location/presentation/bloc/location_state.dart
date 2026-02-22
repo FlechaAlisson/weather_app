@@ -19,6 +19,7 @@ class LocationState {
   bool isWeatherLoading;
   WeatherEntity? weatherEntity;
   String tempUnit;
+  bool showModal;
 
   LocationState({
     this.status = LocationStateEnum.intial,
@@ -30,6 +31,7 @@ class LocationState {
     this.addressList = const [],
     this.weatherEntity,
     this.tempUnit = 'C',
+    this.showModal = false,
   });
 
   LocationState copyWith({
@@ -42,6 +44,7 @@ class LocationState {
     WeatherEntity? weatherEntity,
     bool? isWeatherLoading,
     String? tempUnit,
+    bool? showModal,
   }) => LocationState(
     status: status ?? this.status,
     errorMessage: errorMessage ?? this.errorMessage,
@@ -52,5 +55,6 @@ class LocationState {
     weatherEntity: weatherEntity ?? this.weatherEntity,
     isWeatherLoading: isWeatherLoading ?? this.isWeatherLoading,
     tempUnit: tempUnit ?? this.tempUnit,
+    showModal: showModal ?? this.showModal,
   );
 }

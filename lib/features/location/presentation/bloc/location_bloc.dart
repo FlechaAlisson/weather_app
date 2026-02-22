@@ -31,6 +31,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       _onSearchAddress,
       transformer: debounceTransformer(Duration(seconds: 1)),
     );
+    on<ClearShowModal>(_clearShowModal);
   }
 
   Future<void> _checkWeatherFromLocation(
@@ -49,6 +50,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         state.copyWith(
           isWeatherLoading: false,
           weatherEntity: weatherLoaded,
+          showModal: true,
         ),
       );
     } catch (e) {
@@ -152,5 +154,14 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   EventTransformer<E> debounceTransformer<E>(Duration duration) {
     return (events, mapper) => events.debounceTime(duration).flatMap(mapper);
+  }
+
+  Future<void> _clearShowModal(
+    ClearShowModal event,
+    Emitter<LocationState> emit,
+  ) async {
+    emit(
+      state.copyWith(showModal: false),
+    );
   }
 }

@@ -38,7 +38,7 @@ class _LocationPageState extends State<LocationPage> {
       child: Scaffold(
         body: BlocConsumer<LocationBloc, LocationState>(
           listener: (context, state) {
-            if (!state.isWeatherLoading && state.weatherEntity != null) {
+            if (state.showModal) {
               showCustomAppModal(
                 context: context,
                 title: 'Forecast for this location',
@@ -47,6 +47,7 @@ class _LocationPageState extends State<LocationPage> {
                   weatherList: state.weatherEntity!,
                 ),
               );
+              context.read<LocationBloc>().add(ClearShowModal());
             }
 
             WidgetsBinding.instance.addPostFrameCallback((_) {

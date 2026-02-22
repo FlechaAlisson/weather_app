@@ -24,6 +24,8 @@ class CheckWeatherFromLocation extends LocationEvent {
   });
 }
 
+class ClearShowModal extends LocationEvent {}
+
 class SearchAddress extends LocationEvent {
   final String query;
   const SearchAddress({required this.query});
