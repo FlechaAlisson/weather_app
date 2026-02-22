@@ -29,6 +29,9 @@ class _WeatherView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -50,17 +53,26 @@ class _WeatherView extends StatelessWidget {
               WeatherStateEnum.loading => const Center(
                 child: CircularProgressIndicator(),
               ),
-              WeatherStateEnum.weatherLoaded => ListView.builder(
-                itemCount: state.weather?.forecast.length,
-                itemBuilder: (context, index) {
-                  final day = state.weather?.forecast[index];
+              WeatherStateEnum.weatherLoaded => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Your location'),
+                  SizedBox(height: 16),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: state.weather?.forecast.length,
+                      itemBuilder: (context, index) {
+                        final day = state.weather?.forecast[index];
 
-                  return CustomWeatherTile(
-                    day: day!,
-                    currentTemp: state.weather?.tempCurrent ?? 0,
-                    tempUnit: state.tempUnit,
-                  );
-                },
+                        return CustomWeatherTile(
+                          day: day!,
+                          currentTemp: state.weather?.tempCurrent ?? 0,
+                          tempUnit: state.tempUnit,
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
               WeatherStateEnum.error => Center(
                 child: Column(
