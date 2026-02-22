@@ -16,6 +16,12 @@ class LocationDatasource {
       throw Exception('Permission denied.');
     }
 
-    return Geolocator.getCurrentPosition();
+    Position? lastKnown = await Geolocator.getLastKnownPosition();
+
+    if (lastKnown != null) {
+      return lastKnown;
+    }
+
+    return await Geolocator.getCurrentPosition();
   }
 }
