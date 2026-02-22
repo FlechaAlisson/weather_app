@@ -5,10 +5,10 @@ import 'package:dio/dio.dart';
 class CustomLogInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    log('┌── REQUEST ──────────────────────────────');
-    log('│ ${options.method} ${options.uri}');
-    if (options.data != null) log('│ Body: ${options.data}');
-    log('└─────────────────────────────────────────');
+    log(
+      '┌── REQUEST ──────────────────────────────' +
+          '\n│ ${options.method} ${options.uri}\n│ Body: ${options.data}\n└─────────────────────────────────────────',
+    );
     super.onRequest(options, handler);
   }
 
@@ -17,19 +17,18 @@ class CustomLogInterceptor extends Interceptor {
     Response<dynamic> response,
     ResponseInterceptorHandler handler,
   ) {
-    log('┌── RESPONSE ──────────────────────────────');
-    log('│  ${response.statusCode} : ${response.data}');
-    log('└─────────────────────────────────────────');
+    log(
+      '┌── RESPONSE ──────────────────────────────\n│  ${response.statusCode} : ${response.data}\n└─────────────────────────────────────────',
+    );
 
     super.onResponse(response, handler);
   }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    log('┌── ERROR ────────────────────────────────');
-    log('│ ${err.response?.statusCode} ${err.requestOptions.uri}');
-    log('│ ${err.message}');
-    log('└─────────────────────────────────────────');
+    log(
+      '┌── ERROR ────────────────────────────────\n│ ${err.response?.statusCode} ${err.requestOptions.uri}\n│ ${err.message}\n└─────────────────────────────────────────',
+    );
     handler.next(err);
   }
 }
