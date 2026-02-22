@@ -1,0 +1,14 @@
+Graphical resources used:
+Icons:
+https://fonts.google.com/icons
+
+Map tiles (flutter_map):
+https://www.openstreetmap.org
+
+Geolocation API:
+https://nominatim.org
+
+
+Usage of IA:
+AI tools were used to research open-source libraries (such as flutter_map and the Nominatim API, both based on OpenStreetMap) and to support architectural decision-making during development.
+No AI-generated code was directly copied into the project. All implementation was written and adapted manually.
