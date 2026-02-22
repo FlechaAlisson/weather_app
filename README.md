@@ -1,17 +1,62 @@
 # weather_app
 
-A new Flutter project.
+An application designed to check the weather in your area and also in other areas of the world.
+Uses open-source tools.
 
-## Getting Started
+Due to the use of code generation (Freezed, JSON Serializable), some extra steps are required before building.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+This project uses the following main packages:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Core
+
+- flutter_bloc
+- dio
+- get_it
+- rxdart
+
+### Location & Maps
+
+- geolocator
+- flutter_map
+- latlong2
+
+### Serialization & Code Generation
+
+- freezed_annotation
+- json_annotation
+
+### Utilities
+
+- intl
+- shared_preferences
+
+### Dev dependencies
+
+- build_runner
+- freezed
+- json_serializable
+- flutter_lints
+
+---
+
+## Before build
+
+Install dependencies:
+
+```
+flutter pub get
+```
+
+Then run code generation:
+
+```
+dart run build_runner build --delete-conflicting-outputs
+```
+
+If you change models later, you must run it again.
+
+---
