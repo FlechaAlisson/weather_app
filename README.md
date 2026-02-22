@@ -43,6 +43,13 @@ This project uses the following main packages:
 
 ---
 
+## Third-party API
+
+- Nominatim: Geolocation
+- open-meteo: Weather
+
+---
+
 ## Before build
 
 Install dependencies:
@@ -58,5 +65,15 @@ dart run build_runner build --delete-conflicting-outputs
 ```
 
 If you change models later, you must run it again.
+
+---
+
+## Run project
+
+To run the code:
+
+```
+flutter run
+```
 
 ---
