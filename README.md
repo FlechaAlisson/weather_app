@@ -17,6 +17,7 @@ This project uses the following main packages:
 - dio
 - get_it
 - rxdart
+- go_router
 
 ### Location & Maps
 
