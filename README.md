@@ -23,7 +23,7 @@ This project uses the following main packages:
 
 - geolocator
 - flutter_map
-- latlong2
+- flutter_timezone
 
 ### Serialization & Code Generation
 
