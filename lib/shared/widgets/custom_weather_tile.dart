@@ -33,7 +33,6 @@ class CustomWeatherTile extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -58,12 +57,16 @@ class CustomWeatherTile extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: day.date.isToday()
-                  ? Text('Now: $currentTemp°$tempUnit')
-                  : Container(),
-            ),
+            day.date.isToday()
+                ? Expanded(
+                    child: Column(
+                      children: [
+                        Text('Now:'),
+                        Text('$currentTemp°$tempUnit'),
+                      ],
+                    ),
+                  )
+                : Container(),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -115,8 +118,7 @@ class CustomWeatherTile extends StatelessWidget {
                 ),
               ],
             ),
-            Flexible(child: Container()),
-
+            SizedBox(width: 8),
             Column(
               children: [
                 Text(
