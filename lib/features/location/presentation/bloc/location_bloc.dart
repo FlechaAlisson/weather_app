@@ -32,6 +32,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       transformer: debounceTransformer(Duration(seconds: 1)),
     );
     on<ClearShowModal>(_clearShowModal);
+    on<ClearNewShoudMoveMap>(_shouldMoveMap);
   }
 
   Future<void> _checkWeatherFromLocation(
@@ -112,6 +113,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           newLocation: location,
           addressList: [],
           errorMessage: null,
+          shouldMoveMap: true,
         ),
       );
     } catch (e) {
@@ -164,5 +166,12 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     emit(
       state.copyWith(showModal: false),
     );
+  }
+
+  FutureOr<void> _shouldMoveMap(
+    ClearNewShoudMoveMap event,
+    Emitter<LocationState> emit,
+  ) {
+    emit(state.copyWith(shouldMoveMap: false));
   }
 }

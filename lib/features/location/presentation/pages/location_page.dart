@@ -53,7 +53,8 @@ class _LocationPageState extends State<LocationPage> {
 
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (state.status == LocationStateEnum.locationLoaded &&
-                  state.newLocation != null) {
+                  state.newLocation != null &&
+                  state.shouldMoveMap) {
                 _mapController.move(
                   LatLng(
                     state.newLocation!.latitude,
@@ -61,6 +62,7 @@ class _LocationPageState extends State<LocationPage> {
                   ),
                   15,
                 );
+                context.read<LocationBloc>().add(ClearNewShoudMoveMap());
               }
             });
           },
@@ -132,8 +134,8 @@ class _LocationPageState extends State<LocationPage> {
                           if (!state.isWeatherLoading) {
                             context.read<LocationBloc>().add(
                               CheckWeatherFromLocation(
-                                lat: state.newLocation?.latitude ?? 0,
-                                long: state.newLocation?.longitude ?? 0,
+                                lat: _center?.latitude ?? 0,
+                                long: _center?.longitude ?? 0,
                               ),
                             );
                           }

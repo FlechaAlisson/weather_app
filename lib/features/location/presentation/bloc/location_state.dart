@@ -20,6 +20,7 @@ class LocationState {
   WeatherEntity? weatherEntity;
   String tempUnit;
   bool showModal;
+  bool shouldMoveMap;
 
   LocationState({
     this.status = LocationStateEnum.intial,
@@ -32,6 +33,7 @@ class LocationState {
     this.weatherEntity,
     this.tempUnit = 'C',
     this.showModal = false,
+    this.shouldMoveMap = false,
   });
 
   LocationState copyWith({
@@ -45,6 +47,7 @@ class LocationState {
     bool? isWeatherLoading,
     String? tempUnit,
     bool? showModal,
+    bool? shouldMoveMap,
   }) => LocationState(
     status: status ?? this.status,
     errorMessage: errorMessage ?? this.errorMessage,
@@ -56,5 +59,6 @@ class LocationState {
     isWeatherLoading: isWeatherLoading ?? this.isWeatherLoading,
     tempUnit: tempUnit ?? this.tempUnit,
     showModal: showModal ?? this.showModal,
+    shouldMoveMap: shouldMoveMap ?? this.shouldMoveMap,
   );
 }
