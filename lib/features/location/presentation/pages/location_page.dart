@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:weather_app/core/app_theme.dart';
+import 'package:weather_app/core/theme/app_theme.dart';
 import 'package:weather_app/core/di/injector.dart';
 import 'package:weather_app/features/location/presentation/bloc/location_bloc.dart';
 import 'package:weather_app/features/location/presentation/bloc/location_event.dart';

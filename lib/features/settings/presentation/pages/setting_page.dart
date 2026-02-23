@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/core/app_theme.dart';
+import 'package:weather_app/core/theme/app_theme.dart';
 import 'package:weather_app/core/di/injector.dart';
 import 'package:weather_app/features/settings/presentation/bloc/settings_bloc.dart';
 import 'package:weather_app/features/settings/presentation/bloc/settings_event.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/app_theme.dart';
+import 'package:weather_app/core/theme/app_theme.dart';
 
 class CustomButton extends StatelessWidget {
   final Widget child;
