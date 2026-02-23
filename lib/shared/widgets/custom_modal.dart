@@ -15,6 +15,7 @@ Future<T?> showCustomAppModal<T>({
     context: context,
     isDismissible: dismissible,
     isScrollControlled: true,
+    useRootNavigator: true,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
     ),
@@ -54,7 +55,7 @@ Future<T?> showCustomAppModal<T>({
             if (primaryLabel != null)
               FilledButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context, rootNavigator: true).pop();
                   onPrimary?.call();
                 },
                 child: Text(primaryLabel),
@@ -63,7 +64,7 @@ Future<T?> showCustomAppModal<T>({
               const SizedBox(height: 8),
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.of(context, rootNavigator: true).pop();
                   onSecondary?.call();
                 },
                 child: Text(secondaryLabel),

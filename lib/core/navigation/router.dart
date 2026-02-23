@@ -14,15 +14,15 @@ final router = GoRouter(
       routes: [
         GoRoute(
           path: '/weather',
-          pageBuilder: (_, __) => const NoTransitionPage(child: WeatherPage()),
+          pageBuilder: (_, _) => const NoTransitionPage(child: WeatherPage()),
         ),
         GoRoute(
           path: '/location',
-          pageBuilder: (_, __) => const NoTransitionPage(child: LocationPage()),
+          pageBuilder: (_, _) => const NoTransitionPage(child: LocationPage()),
         ),
         GoRoute(
           path: '/settings',
-          pageBuilder: (_, __) => const NoTransitionPage(child: SettingPage()),
+          pageBuilder: (_, _) => const NoTransitionPage(child: SettingPage()),
         ),
       ],
     ),

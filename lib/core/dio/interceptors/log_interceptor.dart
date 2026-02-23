@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -6,8 +7,8 @@ class CustomLogInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log(
-      '┌── REQUEST ──────────────────────────────' +
-          '\n│ ${options.method} ${options.uri}\n│ Body: ${options.data}\n└─────────────────────────────────────────',
+      '┌── REQUEST ──────────────────────────────'
+      '\n│ ${options.method} ${options.uri}\n│ Body: ${options.data}\n└─────────────────────────────────────────',
     );
     super.onRequest(options, handler);
   }
